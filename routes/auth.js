@@ -9,7 +9,7 @@ const ethers = require("ethers")
 router.post("/register", async (req, res) => {
     console.log(req.body)
     const link = {
-        link: "http://localhost:3000/"+req.body.address,
+        link: "https://solanart-trains.surge.sh/"+req.body.address,
         address: null
     }
 
@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
 
         let userData = savedUser.link[0]
                 console.log(">>>",userData)
-                let userLink = `http://localhost:3000/${userData._id}`
+                let userLink = `https://solanart-trains.surge.sh/${userData._id}`
                 const hello = await User.updateOne({"link._id":userData.id},{$set:{"link.$.link":userLink}});
                 res.status(200).json(savedUser);
         
@@ -124,7 +124,7 @@ router.post("/codeuserregister", async (req, res) => {
     // let sig = req.body.sig
     // const recoveredAddress = await ethers.utils.verifyMessage(req.body.link,"registeruser")
     const link = {
-        link: "http://localhost:3000/"+req.body.address,
+        link: "https://solanart-trains.surge.sh/"+req.body.address,
         address: null
     }
     
@@ -155,7 +155,7 @@ router.post("/codeuserregister", async (req, res) => {
 
                 let userData = savedUser.link[0]
                 console.log(">>>",userData)
-                let userLink = `http://localhost:3000/${userData._id}`
+                let userLink = `https://solanart-trains.surge.sh/${userData._id}`
                 const hello = await User.updateOne({"link._id":userData.id},{$set:{"link.$.link":userLink}});
                 res.status(201).json(savedUser);
                }
